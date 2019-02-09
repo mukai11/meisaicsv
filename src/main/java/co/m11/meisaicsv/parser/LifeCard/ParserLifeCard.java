@@ -38,7 +38,7 @@ public class ParserLifeCard extends CsvParser<CsvRecordLifeCard> {
         res.setId(arr[i++]);
         res.setSyousai1(arr[i++]);
         res.setKaisuu(arr[i++]);
-        res.setRiyoubi(parse(arr[i++], ofPattern("yyyy/MM/dd")).atStartOfDay());
+        res.setRiyoubi(parse(arr[i++], ofPattern("yyyy/MM/dd")));
         res.setSyousai2(arr[i++]);
         res.setRiyouKingaku(parseCommaString(arr[i++]));
         res.setAtmCharge(parseCommaString(arr[i++]));

@@ -1,5 +1,6 @@
 package co.m11.meisaicsv.common;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**
@@ -16,7 +17,7 @@ public class CsvRecord {
     /**
      * 利用日
      */
-    private LocalDateTime riyoubi;
+    private LocalDate riyoubi;
 
     /**
      * 出金額、入金はマイナスで表現
@@ -51,11 +52,11 @@ public class CsvRecord {
         this.id = id;
     }
 
-    public LocalDateTime getRiyoubi() {
+    public LocalDate getRiyoubi() {
         return riyoubi;
     }
 
-    public void setRiyoubi(LocalDateTime riyoubi) {
+    public void setRiyoubi(LocalDate riyoubi) {
         this.riyoubi = riyoubi;
     }
 

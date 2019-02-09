@@ -1,15 +1,19 @@
 package co.m11.meisaicsv.parser.SevenCard;
 
 import co.m11.meisaicsv.common.CsvParser;
+import co.m11.meisaicsv.common.IdGenerator;
 
 import java.util.List;
 
 import static co.m11.meisaicsv.common.CsvType.SevenCard;
-import static co.m11.meisaicsv.common.Util.*;
+import static co.m11.meisaicsv.common.Util.findIndicesFromList;
+import static co.m11.meisaicsv.common.Util.parseCommaString;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
 
 public class ParserSevenCard extends CsvParser<CsvRecordSevenCard> {
+
+    private IdGenerator idGenerator = new IdGenerator();
 
     public ParserSevenCard() {
         super(SevenCard);
@@ -33,7 +37,7 @@ public class ParserSevenCard extends CsvParser<CsvRecordSevenCard> {
         int i = 0;
         res.setRiyousya(arr[i++]);
         res.setSyousai1(arr[i++]);
-        res.setRiyoubi(parse(arr[i++].trim(), ofPattern("yyyy/MM/dd")).atStartOfDay());
+        res.setRiyoubi(parse(arr[i++].trim(), ofPattern("yyyy/MM/dd")));
         res.setSyousai2(arr[i++]);
         res.setPrice(parseCommaString(arr[i++]));
         res.setShiharaiKubun(arr[i++]);
@@ -43,7 +47,7 @@ public class ParserSevenCard extends CsvParser<CsvRecordSevenCard> {
         res.setKokunaiKaigai(arr[i++]);
         res.setTekiyou(arr[i++]);
         res.setBikou(arr[i++]);
-        res.setId(md5(res));
+        res.setId(idGenerator.getId(res.getRiyoubi()));
         return res;
     }
 }
