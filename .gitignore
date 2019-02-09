@@ -268,3 +268,7 @@ buildNumber.properties
 
 # End of https://www.gitignore.io/api/maven
 
+
+# maven wrapper binary
+.mvn/wrapper/maven-wrapper.jar
+
