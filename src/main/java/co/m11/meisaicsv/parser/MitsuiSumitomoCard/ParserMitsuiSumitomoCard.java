@@ -1,6 +1,5 @@
 package co.m11.meisaicsv.parser.MitsuiSumitomoCard;
 
-import co.m11.meisaicsv.common.CsvParseResult;
 import co.m11.meisaicsv.common.CsvParser;
 
 import java.util.List;
@@ -19,7 +18,7 @@ public class ParserMitsuiSumitomoCard extends CsvParser<CsvRecordMitsuiSumitomoC
     }
 
     @Override
-    protected List<String> doBefore(CsvParseResult<CsvRecordMitsuiSumitomoCard> result, List<String> lines) {
+    protected List<String> doBefore(List<String> lines) {
         return lines.stream().filter(l -> ! l.startsWith(",")).collect(Collectors.toList());
     }
 

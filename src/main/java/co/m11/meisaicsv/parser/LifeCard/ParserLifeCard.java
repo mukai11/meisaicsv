@@ -1,6 +1,5 @@
 package co.m11.meisaicsv.parser.LifeCard;
 
-import co.m11.meisaicsv.common.CsvParseResult;
 import co.m11.meisaicsv.common.CsvParser;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class ParserLifeCard extends CsvParser<CsvRecordLifeCard> {
     }
 
     @Override
-    protected List<String> doBefore(CsvParseResult<CsvRecordLifeCard> result, List<String> lines) {
+    protected List<String> doBefore(List<String> lines) {
         List<Integer> startIndices = findIndicesFromList(lines, START_REGEXP);
         skipNum = startIndices.get(0) + 1;
         List<Integer> endIndices = findIndicesFromList(lines, END_REGEXP);

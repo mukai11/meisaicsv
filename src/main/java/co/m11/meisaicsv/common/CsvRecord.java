@@ -2,6 +2,9 @@ package co.m11.meisaicsv.common;
 
 import java.time.LocalDateTime;
 
+/**
+ * 明細レコード
+ */
 public class CsvRecord {
 
     /**

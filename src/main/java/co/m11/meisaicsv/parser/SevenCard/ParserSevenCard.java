@@ -1,14 +1,11 @@
 package co.m11.meisaicsv.parser.SevenCard;
 
-import co.m11.meisaicsv.common.CsvParseResult;
 import co.m11.meisaicsv.common.CsvParser;
 
 import java.util.List;
 
 import static co.m11.meisaicsv.common.CsvType.SevenCard;
-import static co.m11.meisaicsv.common.Util.findIndicesFromList;
-import static co.m11.meisaicsv.common.Util.md5;
-import static co.m11.meisaicsv.common.Util.parseCommaString;
+import static co.m11.meisaicsv.common.Util.*;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
 
@@ -19,7 +16,7 @@ public class ParserSevenCard extends CsvParser<CsvRecordSevenCard> {
     }
 
     @Override
-    protected List<String> doBefore(CsvParseResult<CsvRecordSevenCard> result, List<String> lines) {
+    protected List<String> doBefore(List<String> lines) {
         String regexp = "^\"ご利用者\",\"カテゴリ\".*";
         List<Integer> indices = findIndicesFromList(lines, regexp);
         if (indices.isEmpty()) {
