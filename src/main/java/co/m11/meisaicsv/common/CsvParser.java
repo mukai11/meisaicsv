@@ -96,7 +96,8 @@ public abstract class CsvParser<RECORD extends CsvRecord> {
     }
 
     protected List<String[]> parseAsStringList(List<String> lines) throws Exception {
-        return new CSVReaderBuilder(new StringReader(String.join("\n", lines))).withSkipLines(getSkipNum()).build().readAll();
+        return new CSVReaderBuilder(new StringReader(String.join("\n", lines)))
+                .withSkipLines(getSkipNum()).build().readAll();
     }
 
     protected CsvParseResult<RECORD> generateCsvParseResult() {
