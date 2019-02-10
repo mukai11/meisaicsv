@@ -15,6 +15,8 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static co.m11.meisaicsv.common.CsvRecord.CSV_HEADER;
+
 public class MeisaiCsv {
 
     public static String USAGE;
@@ -66,6 +68,7 @@ public class MeisaiCsv {
     public static String toCsv(CsvParseResult res) {
         try (StringWriter sw = new StringWriter();
              CSVWriter writer = new CSVWriter(sw)) {
+            writer.writeNext(CSV_HEADER);
             for (Object record : res.getRecords().values()) {
                 writer.writeNext(((CsvRecord)record).toCsv());
             }

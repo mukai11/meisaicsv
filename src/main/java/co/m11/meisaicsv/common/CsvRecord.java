@@ -13,6 +13,20 @@ import static java.time.format.DateTimeFormatter.*;
  */
 public class CsvRecord {
 
+    public static String[] CSV_HEADER;
+    static {
+        List<String> items = new ArrayList<>();
+        items.add("ID");
+        items.add("利用日");
+        items.add("詳細1");
+        items.add("詳細2");
+        items.add("金額");
+        items.add("メモ");
+        items.add("残高");
+        CSV_HEADER = items.toArray(new String[items.size()]);
+
+    }
+
     /**
      * 明細を識別するID
      * csv 上に存在しない場合はid 以外の情報のmd5
