@@ -26,7 +26,7 @@ public class TestParserSevenCard {
         CsvRecordSevenCard record = parser.toCsvRecord(arr);
         assertEquals(arr[0], record.getRiyousya());
         assertEquals(arr[1], record.getSyousai1());
-        assertEquals(parse("2018/1/23", ofPattern("yyyy/M/d")).atStartOfDay(), record.getRiyoubi());
+        assertEquals(parse("2018/1/23", ofPattern("yyyy/M/d")), record.getRiyoubi());
         assertEquals(arr[3], record.getSyousai2());
         assertEquals(1234L, (long) record.getPrice());
         assertEquals(arr[5], record.getShiharaiKubun());
@@ -51,7 +51,7 @@ public class TestParserSevenCard {
         CsvRecordSevenCard r1 = res.getRecords().get(7);
         assertEquals("****-****-****-1234　セブンカードＶｉｓａ　徳川　家康　様", r1.getRiyousya());
         assertEquals("≪ショッピング取組（国内）≫", r1.getSyousai1());
-        assertEquals(parse("2018/1/16", ofPattern("yyyy/M/d")).atStartOfDay(), r1.getRiyoubi());
+        assertEquals(parse("2018/1/16", ofPattern("yyyy/M/d")), r1.getRiyoubi());
         assertEquals("ツルハ", r1.getSyousai2());
         assertEquals(1584L, (long) r1.getPrice());
         assertEquals("１回", r1.getShiharaiKubun());
@@ -61,6 +61,6 @@ public class TestParserSevenCard {
         assertEquals("国内", r1.getKokunaiKaigai());
         assertEquals("", r1.getTekiyou());
         assertEquals("*", r1.getBikou());
-        assertFalse(Strings.isNullOrEmpty(r1.getId()));
+        assertEquals("20180116-1", r1.getId());
     }
 }

@@ -39,7 +39,7 @@ public class TestParserMitsubishiUfjBank {
     }
 
     private void assertion(String[] arr, CsvRecordMitsubishiUfjBank record) {
-        assertEquals(parse(arr[0], ofPattern("yyyy/M/d")).atStartOfDay(), record.getRiyoubi());
+        assertEquals(parse(arr[0], ofPattern("yyyy/M/d")), record.getRiyoubi());
         assertEquals(arr[1], record.getSyousai1());
         assertEquals(arr[2], record.getSyousai2());
         assertEquals(Long.parseLong(arr[5]), (long) record.getBankBalance());
@@ -59,7 +59,7 @@ public class TestParserMitsubishiUfjBank {
 
         // "2018/1/9","給料","","","230,090","414,679","","","振替入金"
         CsvRecordMitsubishiUfjBank r1 = res.getRecords().get(2);
-        assertEquals(parse("2018/1/9", ofPattern("yyyy/M/d")).atStartOfDay(), r1.getRiyoubi());
+        assertEquals(parse("2018/1/9", ofPattern("yyyy/M/d")), r1.getRiyoubi());
         assertEquals("給料", r1.getSyousai1());
         assertEquals("", r1.getSyousai2());
         assertEquals(-230090L, (long) r1.getPrice());
@@ -67,11 +67,11 @@ public class TestParserMitsubishiUfjBank {
         assertEquals("", r1.getMemo());
         assertEquals("", r1.getMishikinkaKubun());
         assertEquals("振替入金", r1.getIribaraiKubun());
-        assertFalse(Strings.isNullOrEmpty(r1.getId()));
+        assertEquals("20180109-1", r1.getId());
 
         // "2018/1/21","ＪＣＢ","ＪＣＢ）セブンカ−ド","45,252","","369,427","つかいすぎ","","振替支払い"
         CsvRecordMitsubishiUfjBank r2 = res.getRecords().get(3);
-        assertEquals(parse("2018/1/21", ofPattern("yyyy/M/d")).atStartOfDay(), r2.getRiyoubi());
+        assertEquals(parse("2018/1/21", ofPattern("yyyy/M/d")), r2.getRiyoubi());
         assertEquals("ＪＣＢ", r2.getSyousai1());
         assertEquals("ＪＣＢ）セブンカ−ド", r2.getSyousai2());
         assertEquals(45252L, (long) r2.getPrice());
@@ -79,6 +79,6 @@ public class TestParserMitsubishiUfjBank {
         assertEquals("つかいすぎ", r2.getMemo());
         assertEquals("", r2.getMishikinkaKubun());
         assertEquals("振替支払い", r2.getIribaraiKubun());
-        assertFalse(Strings.isNullOrEmpty(r2.getId()));
+        assertEquals("20180121-1", r2.getId());
     }
 }

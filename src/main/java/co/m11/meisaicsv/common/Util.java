@@ -1,30 +1,12 @@
 package co.m11.meisaicsv.common;
 
 import com.google.common.base.Strings;
-import com.google.gson.Gson;
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.InputStream;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Util {
-
-    public static String md5(String s) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(Strings.nullToEmpty(s).getBytes());
-            byte[] digest = md.digest();
-            return DatatypeConverter.printHexBinary(digest).toUpperCase();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static String md5(Object o) {
-        return md5((new Gson()).toJson(o));
-    }
 
     public static Long parseCommaString(String s) {
         s = Strings.nullToEmpty(s);

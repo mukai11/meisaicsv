@@ -1,10 +1,15 @@
 package co.m11.meisaicsv.common;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CsvParseResult<RECORD extends CsvRecord> {
 
+    /**
+     * Csv 解析結果
+     */
+    private List<String[]> parsedCsv;
     /**
      * 明細一覧
      */
@@ -29,5 +34,13 @@ public class CsvParseResult<RECORD extends CsvRecord> {
 
     public void setErrors(Map<Integer, Throwable> errors) {
         this.errors = errors;
+    }
+
+    public List<String[]> getParsedCsv() {
+        return parsedCsv;
+    }
+
+    public void setParsedCsv(List<String[]> parsedCsv) {
+        this.parsedCsv = parsedCsv;
     }
 }

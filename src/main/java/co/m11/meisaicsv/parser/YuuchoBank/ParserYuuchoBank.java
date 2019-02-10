@@ -1,6 +1,5 @@
 package co.m11.meisaicsv.parser.YuuchoBank;
 
-import co.m11.meisaicsv.common.CsvParseResult;
 import co.m11.meisaicsv.common.CsvParser;
 import co.m11.meisaicsv.common.CsvRecord;
 
@@ -20,7 +19,7 @@ public class ParserYuuchoBank extends CsvParser<CsvRecord> {
     }
 
     @Override
-    protected List<String> doBefore(CsvParseResult<CsvRecord> result, List<String> lines) {
+    protected List<String> doBefore(List<String> lines) {
         List<Integer> startIndices = findIndicesFromList(lines, START_REGEXP);
         skipNum = startIndices.get(0) + 1;
         return lines;
@@ -31,7 +30,7 @@ public class ParserYuuchoBank extends CsvParser<CsvRecord> {
         // 取引日,入出金明細ＩＤ,受入金額（円）,払出金額（円）,詳細１,詳細２,現在（貸付）高,
         CsvRecord res = new CsvRecord();
         int i = 0;
-        res.setRiyoubi(parse(arr[i++], ofPattern("yyyyMMdd")).atStartOfDay());
+        res.setRiyoubi(parse(arr[i++], ofPattern("yyyyMMdd")));
         res.setId(arr[i++]);
         String income = arr[i++];
         res.setPrice(parsePrice(arr[i++], income));

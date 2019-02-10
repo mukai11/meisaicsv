@@ -26,7 +26,7 @@ public class TestParserLifeCard {
         assertEquals(arr[0], record.getId());
         assertEquals(arr[1], record.getSyousai1());
         assertEquals(arr[2], record.getKaisuu());
-        assertEquals(parse("2018/1/23", ofPattern("yyyy/M/d")).atStartOfDay(), record.getRiyoubi());
+        assertEquals(parse("2018/1/23", ofPattern("yyyy/M/d")), record.getRiyoubi());
         assertEquals(arr[4], record.getSyousai2());
         assertEquals(123L, (long) record.getRiyouKingaku());
         assertEquals(234L, (long) record.getAtmCharge());
@@ -50,7 +50,7 @@ public class TestParserLifeCard {
         assertEquals("1113", r1.getId());
         assertEquals("ショッピング", r1.getSyousai1());
         assertEquals("1回", r1.getKaisuu());
-        assertEquals(parse("2017/11/27", ofPattern("yyyy/M/d")).atStartOfDay(), r1.getRiyoubi());
+        assertEquals(parse("2017/11/27", ofPattern("yyyy/M/d")), r1.getRiyoubi());
         assertEquals("東京ガス　１７年１１月ガス料金", r1.getSyousai2());
         assertEquals(4877L, (long) r1.getRiyouKingaku());
         assertNull(r1.getAtmCharge());
@@ -65,7 +65,7 @@ public class TestParserLifeCard {
         assertEquals("1114", r2.getId());
         assertEquals("ショッピング", r2.getSyousai1());
         assertEquals("1回", r2.getKaisuu());
-        assertEquals(parse("2017/12/24", ofPattern("yyyy/M/d")).atStartOfDay(), r2.getRiyoubi());
+        assertEquals(parse("2017/12/24", ofPattern("yyyy/M/d")), r2.getRiyoubi());
         assertEquals("ＮＴＴヒガシニホン１２ガツブン", r2.getSyousai2());
         assertEquals(2970L, (long) r2.getRiyouKingaku());
         assertNull(r2.getAtmCharge());

@@ -38,7 +38,7 @@ public class TestParserYuuchoBank {
     }
 
     private void assertion(String[] arr, CsvRecord record) {
-        assertEquals(parse("2018/5/28", ofPattern("yyyy/M/d")).atStartOfDay(), record.getRiyoubi());
+        assertEquals(parse("2018/5/28", ofPattern("yyyy/M/d")), record.getRiyoubi());
         assertEquals(arr[1], record.getId());
         assertEquals(arr[4], record.getSyousai1());
         assertEquals(arr[5], record.getSyousai2());
@@ -55,7 +55,7 @@ public class TestParserYuuchoBank {
 
         // 20180720,201807200000001,3,,受取利子,,13345,
         CsvRecord r1 = res.getRecords().get(9);
-        assertEquals(parse("2018/7/20", ofPattern("yyyy/M/d")).atStartOfDay(), r1.getRiyoubi());
+        assertEquals(parse("2018/7/20", ofPattern("yyyy/M/d")), r1.getRiyoubi());
         assertEquals("201807200000001", r1.getId());
         assertEquals(-3L, (long) r1.getPrice());
         assertEquals("受取利子", r1.getSyousai1());
@@ -64,7 +64,7 @@ public class TestParserYuuchoBank {
 
         // 20180720,201807200000002,,1000,送金,アリスカ−ド,12345,
         CsvRecord r2 = res.getRecords().get(10);
-        assertEquals(parse("2018/7/20", ofPattern("yyyy/M/d")).atStartOfDay(), r2.getRiyoubi());
+        assertEquals(parse("2018/7/20", ofPattern("yyyy/M/d")), r2.getRiyoubi());
         assertEquals("201807200000002", r2.getId());
         assertEquals(1000L, (long) r2.getPrice());
         assertEquals("送金", r2.getSyousai1());
