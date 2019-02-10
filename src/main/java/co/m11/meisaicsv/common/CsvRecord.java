@@ -2,6 +2,11 @@ package co.m11.meisaicsv.common;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.time.format.DateTimeFormatter.*;
 
 /**
  * 明細レコード
@@ -98,5 +103,17 @@ public class CsvRecord {
 
     public void setBankBalance(Long bankBalance) {
         this.bankBalance = bankBalance;
+    }
+
+    public String[] toCsv() {
+        List<String> items = new ArrayList<>();
+        items.add(getId());
+        items.add(getRiyoubi().format(ofPattern("yyyy/MM/dd")));
+        items.add(getSyousai1());
+        items.add(getSyousai2());
+        items.add(getPrice() + "");
+        items.add(getMemo());
+        items.add(getBankBalance() + "");
+        return items.toArray(new String[items.size()]);
     }
 }
