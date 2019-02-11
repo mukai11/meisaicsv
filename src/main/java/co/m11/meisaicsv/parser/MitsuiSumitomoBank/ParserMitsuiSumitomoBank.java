@@ -6,9 +6,9 @@ import co.m11.meisaicsv.common.IdGenerator;
 
 import java.time.LocalDate;
 
-import static co.m11.meisaicsv.common.CsvType.MitsuiSumitomoBank;
-import static co.m11.meisaicsv.common.Util.parseCommaString;
-import static co.m11.meisaicsv.common.Util.parsePrice;
+import static co.m11.meisaicsv.common.MeisaiCsvType.MitsuiSumitomoBank;
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.parseCommaString;
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.parsePrice;
 
 public class ParserMitsuiSumitomoBank extends CsvParser<CsvRecord> {
 

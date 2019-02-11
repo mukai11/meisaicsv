@@ -18,7 +18,7 @@ public abstract class CsvParser<RECORD extends CsvRecord> {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    protected CsvType type;
+    protected MeisaiCsvType type;
     /**
      * 読み飛ばし行数
      */
@@ -29,10 +29,10 @@ public abstract class CsvParser<RECORD extends CsvRecord> {
     protected CsvParseResult<RECORD> result;
 
     /**
-     * CsvType 必須
+     * MeisaiCsvType 必須
      * @param type
      */
-    protected CsvParser(CsvType type) {
+    protected CsvParser(MeisaiCsvType type) {
         this.type = type;
     }
 
@@ -44,13 +44,17 @@ public abstract class CsvParser<RECORD extends CsvRecord> {
      */
     public CsvParseResult<RECORD> parseCsv(InputStream inputStream) throws Exception {
         /**
-         * 結果用オブジェクトを作成
-         */
-        result = generateCsvParseResult();
-        /**
          * inputStream をString 型で読み出し
          */
         List<String> lines = readLines(inputStream, type.getEncode());
+        return parseCsv(lines);
+    }
+
+    public CsvParseResult<RECORD> parseCsv(List<String> lines) throws Exception {
+        /**
+         * 結果用オブジェクトを作成
+         */
+        result = generateCsvParseResult();
         /**
          * before イベント
          */

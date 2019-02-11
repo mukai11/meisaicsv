@@ -6,8 +6,8 @@ import co.m11.meisaicsv.common.IdGenerator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static co.m11.meisaicsv.common.CsvType.MitsuiSumitomoCard;
-import static co.m11.meisaicsv.common.Util.parseCommaString;
+import static co.m11.meisaicsv.common.MeisaiCsvType.MitsuiSumitomoCard;
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.parseCommaString;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
 

@@ -5,9 +5,9 @@ import co.m11.meisaicsv.common.IdGenerator;
 
 import java.util.List;
 
-import static co.m11.meisaicsv.common.CsvType.SevenCard;
-import static co.m11.meisaicsv.common.Util.findIndicesFromList;
-import static co.m11.meisaicsv.common.Util.parseCommaString;
+import static co.m11.meisaicsv.common.MeisaiCsvType.SevenCard;
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.findIndicesFromList;
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.parseCommaString;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
 

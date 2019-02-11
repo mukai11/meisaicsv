@@ -2,7 +2,6 @@ package co.m11.meisaicsv.parser.MitsuiSumitomoBank;
 
 import co.m11.meisaicsv.common.CsvParseResult;
 import co.m11.meisaicsv.common.CsvRecord;
-import co.m11.meisaicsv.common.Util;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
@@ -11,6 +10,7 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.List;
 
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.getClassPathResource;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
 import static org.junit.jupiter.api.Assertions.*;
@@ -60,7 +60,7 @@ public class TestParserMitsuiSumitomoBank {
     @Test
     void testParse() throws Exception {
         ParserMitsuiSumitomoBank parser = new ParserMitsuiSumitomoBank();
-        InputStream is = Util.getClassPathResource("/csv/MitsuiSumitomoBank/MitsuiSumitomoBank.csv");
+        InputStream is = getClassPathResource("/csv/MitsuiSumitomoBank/MitsuiSumitomoBank.csv");
         CsvParseResult<CsvRecord> res = parser.parseCsv(is);
         assertEquals(2, res.getRecords().size());
         assertTrue(res.getErrors().isEmpty());

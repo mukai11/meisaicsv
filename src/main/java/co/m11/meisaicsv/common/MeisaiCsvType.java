@@ -1,6 +1,6 @@
 package co.m11.meisaicsv.common;
 
-public enum CsvType {
+public enum MeisaiCsvType {
 
     /**
      * こちらで管理しています
@@ -17,15 +17,15 @@ public enum CsvType {
     ;
 
     private String name;
-    private String type;
+    private String key;
     private String encode;
     private String description;
     private String updateDate;
     private String createDate;
 
-    CsvType(String name, String type, String encode, String description, String updateDate, String createDate) {
+    MeisaiCsvType(String name, String key, String encode, String description, String updateDate, String createDate) {
         this.name = name;
-        this.type = type;
+        this.key = key;
         this.encode = encode;
         this.description = description;
         this.updateDate = updateDate;
@@ -52,8 +52,8 @@ public enum CsvType {
         return createDate;
     }
 
-    public String getType() {
-        return type;
+    public String getKey() {
+        return key;
     }
 
     public String getEncode() {

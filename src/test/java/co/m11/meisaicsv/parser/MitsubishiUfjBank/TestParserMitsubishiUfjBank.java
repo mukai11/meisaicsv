@@ -1,7 +1,6 @@
 package co.m11.meisaicsv.parser.MitsubishiUfjBank;
 
 import co.m11.meisaicsv.common.CsvParseResult;
-import co.m11.meisaicsv.common.Util;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
@@ -9,11 +8,10 @@ import org.junit.jupiter.api.Test;
 import java.io.InputStream;
 import java.util.List;
 
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.getClassPathResource;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestParserMitsubishiUfjBank {
 
@@ -52,7 +50,7 @@ public class TestParserMitsubishiUfjBank {
     @Test
     void testParse() throws Exception {
         ParserMitsubishiUfjBank parser = new ParserMitsubishiUfjBank();
-        InputStream is = Util.getClassPathResource("/csv/MitsubishiUfjBank/MitsubishiUfjBank.csv");
+        InputStream is = getClassPathResource("/csv/MitsubishiUfjBank/MitsubishiUfjBank.csv");
         CsvParseResult<CsvRecordMitsubishiUfjBank> res = parser.parseCsv(is);
         assertEquals(2, res.getRecords().size());
         assertTrue(res.getErrors().isEmpty());

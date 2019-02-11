@@ -2,13 +2,13 @@ package co.m11.meisaicsv.parser.YuuchoBank;
 
 import co.m11.meisaicsv.common.CsvParseResult;
 import co.m11.meisaicsv.common.CsvRecord;
-import co.m11.meisaicsv.common.Util;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
 import java.util.List;
 
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.getClassPathResource;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -48,7 +48,7 @@ public class TestParserYuuchoBank {
     @Test
     void testParse() throws Exception {
         ParserYuuchoBank parser = new ParserYuuchoBank();
-        InputStream is = Util.getClassPathResource("/csv/YuuchoBank/YuuchoBank.csv");
+        InputStream is = getClassPathResource("/csv/YuuchoBank/YuuchoBank.csv");
         CsvParseResult<CsvRecord> res = parser.parseCsv(is);
         assertEquals(2, res.getRecords().size());
         assertTrue(res.getErrors().isEmpty());

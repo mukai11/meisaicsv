@@ -5,8 +5,8 @@ import co.m11.meisaicsv.common.CsvRecord;
 
 import java.util.List;
 
-import static co.m11.meisaicsv.common.CsvType.YuuchoBank;
-import static co.m11.meisaicsv.common.Util.*;
+import static co.m11.meisaicsv.common.MeisaiCsvType.YuuchoBank;
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.*;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
 

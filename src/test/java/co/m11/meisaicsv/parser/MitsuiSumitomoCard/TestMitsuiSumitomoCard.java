@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.io.InputStream;
 import java.util.List;
 
-import static co.m11.meisaicsv.common.Util.getClassPathResource;
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.getClassPathResource;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
 import static org.junit.jupiter.api.Assertions.*;

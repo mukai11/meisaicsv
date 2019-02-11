@@ -1,7 +1,7 @@
 package co.m11.meisaicsv.parser.LifeCard;
 
 import co.m11.meisaicsv.common.CsvParseResult;
-import co.m11.meisaicsv.common.Util;
+import co.m11.meisaicsv.common.MeisaiCsvUtil;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
 
@@ -40,7 +40,7 @@ public class TestParserLifeCard {
     @Test
     void testParse() throws Exception {
         ParserLifeCard parser = new ParserLifeCard();
-        InputStream is = Util.getClassPathResource("/csv/LifeCard/LifeCard.csv");
+        InputStream is = MeisaiCsvUtil.getClassPathResource("/csv/LifeCard/LifeCard.csv");
         CsvParseResult<CsvRecordLifeCard> res = parser.parseCsv(is);
         assertEquals(2, res.getRecords().size());
         assertTrue(res.getErrors().isEmpty());

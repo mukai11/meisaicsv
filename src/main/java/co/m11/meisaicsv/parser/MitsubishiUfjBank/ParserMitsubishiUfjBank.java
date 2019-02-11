@@ -3,9 +3,9 @@ package co.m11.meisaicsv.parser.MitsubishiUfjBank;
 import co.m11.meisaicsv.common.CsvParser;
 import co.m11.meisaicsv.common.IdGenerator;
 
-import static co.m11.meisaicsv.common.CsvType.MitsubishiUfjBank;
-import static co.m11.meisaicsv.common.Util.parseCommaString;
-import static co.m11.meisaicsv.common.Util.parsePrice;
+import static co.m11.meisaicsv.common.MeisaiCsvType.MitsubishiUfjBank;
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.parseCommaString;
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.parsePrice;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
 

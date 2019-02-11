@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Util {
+public class MeisaiCsvUtil {
 
     public static Long parseCommaString(String s) {
         s = Strings.nullToEmpty(s);
@@ -17,7 +17,7 @@ public class Util {
     }
 
     public static InputStream getClassPathResource(String path){
-        return Util.class.getResourceAsStream(path);
+        return MeisaiCsvUtil.class.getResourceAsStream(path);
     }
 
     public static long parsePrice(String expense, String income) {

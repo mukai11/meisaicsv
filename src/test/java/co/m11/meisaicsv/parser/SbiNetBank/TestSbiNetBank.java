@@ -2,14 +2,13 @@ package co.m11.meisaicsv.parser.SbiNetBank;
 
 import co.m11.meisaicsv.common.CsvParseResult;
 import co.m11.meisaicsv.common.CsvRecord;
-import co.m11.meisaicsv.common.Util;
-import co.m11.meisaicsv.parser.YuuchoBank.ParserYuuchoBank;
 import com.google.common.collect.Lists;
 import org.junit.jupiter.api.Test;
 
 import java.io.InputStream;
 import java.util.List;
 
+import static co.m11.meisaicsv.common.MeisaiCsvUtil.getClassPathResource;
 import static java.time.LocalDate.parse;
 import static java.time.format.DateTimeFormatter.ofPattern;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -48,7 +47,7 @@ public class TestSbiNetBank {
     @Test
     void testParse() throws Exception {
         ParserSbiNetBank parser = new ParserSbiNetBank();
-        InputStream is = Util.getClassPathResource("/csv/SbiNetBank/SbiNetBank.csv");
+        InputStream is = getClassPathResource("/csv/SbiNetBank/SbiNetBank.csv");
         CsvParseResult<CsvRecord> res = parser.parseCsv(is);
         assertEquals(3, res.getRecords().size());
         assertTrue(res.getErrors().isEmpty());
