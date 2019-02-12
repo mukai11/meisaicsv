@@ -55,6 +55,7 @@ public abstract class CsvParser<RECORD extends CsvRecord> {
          * 結果用オブジェクトを作成
          */
         result = generateCsvParseResult();
+        result.setParsedCsv(lines);
         /**
          * before イベント
          */
@@ -63,7 +64,6 @@ public abstract class CsvParser<RECORD extends CsvRecord> {
          * Csv 解析(thanks to OpenCSV)
          */
         List<String[]> list = parseAsStringList(lines);
-        result.setParsedCsv(list);
         /**
          * 明細毎にループ
          */

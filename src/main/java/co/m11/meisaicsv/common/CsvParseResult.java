@@ -7,9 +7,10 @@ import java.util.Map;
 public class CsvParseResult<RECORD extends CsvRecord> {
 
     /**
-     * Csv 解析結果
+     * Csv 解析前
      */
-    private List<String[]> parsedCsv;
+    private List<String> lines;
+
     /**
      * 明細一覧
      */
@@ -36,11 +37,11 @@ public class CsvParseResult<RECORD extends CsvRecord> {
         this.errors = errors;
     }
 
-    public List<String[]> getParsedCsv() {
-        return parsedCsv;
+    public List<String> getLines() {
+        return lines;
     }
 
-    public void setParsedCsv(List<String[]> parsedCsv) {
-        this.parsedCsv = parsedCsv;
+    public void setLines(List<String> lines) {
+        this.lines = lines;
     }
 }
