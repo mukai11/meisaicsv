@@ -55,7 +55,7 @@ public abstract class CsvParser<RECORD extends CsvRecord> {
          * 結果用オブジェクトを作成
          */
         result = generateCsvParseResult();
-        result.setParsedCsv(lines);
+        result.setLines(lines);
         /**
          * before イベント
          */

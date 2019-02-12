@@ -39,8 +39,7 @@ public class MeisaiCsv {
             System.out.println(USAGE);
             System.exit(1);
         }
-        String typeKey = args[0];
-        MeisaiCsvType type = MeisaiCsvType.valueOf(typeKey);
+        MeisaiCsvType type = MeisaiCsvType.valueOf(args[0]);
         String filePath = args[1];
         String outputType = "";
         if (3 <= args.length) {
