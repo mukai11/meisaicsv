@@ -1,7 +1,7 @@
 # 明細CSV
 
 ## 目的
-銀行やクレジットカードの明細一覧CSV をフォーマットを統一させたい。
+銀行やクレジットカードの明細一覧CSV をフォーマット統一させる。
 
 
 ## 対応機関一覧
@@ -54,4 +54,8 @@ java 8以上
 
 java -jar dist/meisaicsv-x.x.x-jar-with-dependencies.jar SbiNetBank /tmp/sbi.csv
 
+## デモ
+
+[こちら](https://meisaicsvweb.m11.co/parse)
+でお試し下さい。
 
