@@ -56,6 +56,6 @@ java -jar dist/meisaicsv-x.x.x-jar-with-dependencies.jar SbiNetBank /tmp/sbi.csv
 
 ## デモ
 
-[こちら](https://meisaicsvweb.m11.co/parse)
+[こちら](https://meisaicsvweb.m11.co/)
 でお試し下さい。
 
