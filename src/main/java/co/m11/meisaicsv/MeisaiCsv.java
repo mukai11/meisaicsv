@@ -5,13 +5,9 @@ import co.m11.meisaicsv.common.CsvParser;
 import co.m11.meisaicsv.common.CsvRecord;
 import co.m11.meisaicsv.common.MeisaiCsvType;
 import com.google.gson.Gson;
-import com.opencsv.CSVWriter;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.csv.CSVFormat;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.io.StringWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +48,7 @@ public class MeisaiCsv {
         /**
          * 結果出力
          */
-        if (StringUtils.equalsAnyIgnoreCase("JSON", outputType)) {
+        if ("JSON".equalsIgnoreCase(outputType)) {
             System.out.println((new Gson()).toJson(res));
         } else {
             System.out.println(toCsv(res));
@@ -65,15 +61,15 @@ public class MeisaiCsv {
     }
 
     public static String toCsv(CsvParseResult res) {
-        try (StringWriter sw = new StringWriter();
-             CSVWriter writer = new CSVWriter(sw)) {
-            writer.writeNext(CSV_HEADER);
+        try (StringWriter sw = new StringWriter()) {
+
+            CSVFormat.EXCEL.printRecord(sw, (Object[]) CSV_HEADER);
+
             for (Object record : res.getRecords().values()) {
-                writer.writeNext(((CsvRecord)record).toCsv());
+                CSVFormat.EXCEL.printRecord(sw, (Object[]) ((CsvRecord) record).toCsv());
             }
-            writer.close();
             return sw.toString();
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
